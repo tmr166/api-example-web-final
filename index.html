@@ -1,0 +1,91 @@
+<head>
+    <!--    jquery used for ajax calls-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </script>
+
+
+    <script>
+        // getStoreDetails Request
+        function getStoreDetails() {
+
+            // 1 - Make AJAX Call
+            $.ajax({
+                cache: false,
+                url: "https://apimdev.wakefern.com/mockexample/V1/getStoreDetails",  // Set URL Here
+                method: "GET",  //Set Method Here
+                dataType: "json",
+                crossDomain: true,
+                CORS: true,
+                async: true,
+                headers: {  // Set Headers Here
+                    'Ocp-Apim-Subscription-Key': '4ae9400a1eda4f14b3e7227f24b74b44',
+                    'accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET, POST,OPTIONS',
+                    'Access-Control-Allow-Headers': 'X-Requested-With,content-type,Authorization,Ocp-Apim-Subscription-Key'
+                },
+
+                // 2 - Set Success Actions Here
+                success: function (data) {
+
+                    //Store JSON into a variable
+                    responseJSON = JSON.stringify(data);
+                    console.log(responseJSON)
+
+                },
+                // 3 - Set Fail Actions Here
+                // Error handling in web dev generally does not involve a log file.
+                // This section should include feedback to the user of the website saying something went wrong
+                // Production code should not print on the console
+                // Development code can print in the console for debugging reasons
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        // /getItemDetails Request
+        function getItemDetails() {
+
+            // 1 - Make AJAX Call
+            $.ajax({
+                cache: false,
+                url: "https://apimdev.wakefern.com/mockexample/V1/getItemDetails",  // Set URL Here
+                method: "GET",  //Set Method Here
+                dataType: "json",
+                crossDomain: true,
+                CORS: true,
+                async: true,
+                headers: {  // Set Headers Here
+                    'Ocp-Apim-Subscription-Key': '4ae9400a1eda4f14b3e7227f24b74b44',
+                    'accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET, POST,OPTIONS',
+                    'Access-Control-Allow-Headers': 'X-Requested-With,content-type,Authorization,Ocp-Apim-Subscription-Key'
+                },
+
+                // 2 - Set Success Actions Here
+                success: function (data) {
+
+                    //Store JSON into a variable
+                    responseJSON = JSON.stringify(data);
+                    console.log(responseJSON)
+
+                },
+                // 3 - Set Fail Actions Here
+                // Error handling in web dev generally does not involve a log file.
+                // This section should include feedback to the user of the website saying something went wrong
+                // Production code should not print on the console
+                // Development code can print in the console for debugging reasons
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        // Call API Requests
+        getStoreDetails();
+        getItemDetails()
+    </script>
+</head>
